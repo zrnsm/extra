@@ -16,7 +16,7 @@ import (
 	"sort"
 
 	"periph.io/x/extra/hostextra/d2xx/d2xxsmoketest"
-	"periph.io/x/periph/host"
+	"periph.io/x/host/v3"
 )
 
 // SmokeTest must be implemented by a smoke test. It will be run by this

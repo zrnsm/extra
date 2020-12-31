@@ -10,8 +10,8 @@ import (
 	"errors"
 	"time"
 
-	"periph.io/x/periph/conn/gpio"
-	"periph.io/x/periph/conn/physic"
+	"periph.io/x/conn/v3/gpio"
+	"periph.io/x/conn/v3/physic"
 )
 
 // invalidPin is a non-working (not implemented) pin on a FTDI device.

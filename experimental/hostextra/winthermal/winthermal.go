@@ -11,8 +11,8 @@ import (
 	"errors"
 	"time"
 
-	"periph.io/x/periph"
-	"periph.io/x/periph/conn/physic"
+	"periph.io/x/conn/v3/driver"
+	"periph.io/x/conn/v3/physic"
 )
 
 // Dev represents an handle to a WMI based sensor.
@@ -55,24 +55,24 @@ type obj struct {
 	SamplingPeriod     int
 }
 
-type driver struct {
+type driverImpl struct {
 }
 
-func (d *driver) String() string {
+func (d *driverImpl) String() string {
 	return "winthermal"
 }
 
-func (d *driver) After() []string {
+func (d *driverImpl) After() []string {
 	return nil
 }
 
-func (d *driver) Prerequisites() []string {
+func (d *driverImpl) Prerequisites() []string {
 	return nil
 }
 
-func (d *driver) Init() (bool, error) {
+func (d *driverImpl) Init() (bool, error) {
 	return true, initWindows()
 }
 
-var _ periph.Driver = &driver{}
+var _ driver.Impl = &driverImpl{}
 var _ physic.SenseEnv = &Dev{}

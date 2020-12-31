@@ -12,5 +12,7 @@ github.com/mattn/go-isatty v0.0.8 h1:HLtExJ+uU2HOZ+wI0Tt5DtUDrx8yhUqDcp7fYERX4CE
 github.com/mattn/go-isatty v0.0.8/go.mod h1:Iq45c/XA43vh69/j3iqttzPXn0bhXyGjM0Hdxcsrc5s=
 golang.org/x/sys v0.0.0-20190222072716-a9d3bda3a223 h1:DH4skfRX4EBpamg7iV4ZlCpblAHI6s6TDM39bFZumv8=
 golang.org/x/sys v0.0.0-20190222072716-a9d3bda3a223/go.mod h1:STP8DvDyc/dI5b8T5hshtkjS+E42TnysNCUPdjciGhY=
-periph.io/x/periph v3.6.2+incompatible h1:B9vqhYVuhKtr6bXua8N9GeBEvD7yanczCvE0wU2LEqw=
-periph.io/x/periph v3.6.2+incompatible/go.mod h1:EWr+FCIU2dBWz5/wSWeiIUJTriYv9v2j2ENBmgYyy7Y=
+periph.io/x/conn/v3 v3.0.0-20201230174115-729c1fe5c4ae h1:wTeZT1kBDn3ddkpa9+bE3SXOlkD5JH7u0Cm2lqwHdkk=
+periph.io/x/conn/v3 v3.0.0-20201230174115-729c1fe5c4ae/go.mod h1:3OD27w9YVa5DS97VsUxsPGzD9Qrm5Ny7cF5b6xMMIWg=
+periph.io/x/host/v3 v3.0.0-20201230195025-17c4f529ff59 h1:yxGQoWZR/xGEf9EwEehv1D01kQY6NlORxS/xPEGeTrM=
+periph.io/x/host/v3 v3.0.0-20201230195025-17c4f529ff59/go.mod h1:3L/rTbv/CkEFDP0SUtgqzYIJCWF7H0AjctUlYtbEm8g=

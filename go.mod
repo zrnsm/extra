@@ -8,5 +8,6 @@ require (
 	github.com/google/gousb v0.0.0-20190525092738-2dc560e6bea3
 	github.com/maruel/ansi256 v1.0.0
 	github.com/mattn/go-colorable v0.1.2
-	periph.io/x/periph v3.6.2+incompatible
+	periph.io/x/conn/v3 v3.0.0-20201230174115-729c1fe5c4ae
+	periph.io/x/host/v3 v3.0.0-20201230195025-17c4f529ff59
 )

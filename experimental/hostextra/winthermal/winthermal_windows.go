@@ -6,7 +6,7 @@ package winthermal
 
 import (
 	"github.com/StackExchange/wmi"
-	"periph.io/x/periph"
+	"periph.io/x/conn/v3/driver/driverreg"
 )
 
 func initWindows() error {
@@ -19,5 +19,5 @@ func initWindows() error {
 }
 
 func init() {
-	periph.MustRegister(&driver{})
+	driverreg.MustRegister(&driver{})
 }

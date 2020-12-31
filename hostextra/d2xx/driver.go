@@ -8,15 +8,15 @@ import (
 	"strconv"
 	"sync"
 
+	"periph.io/x/conn/v3/driver/driverreg"
+	"periph.io/x/conn/v3/gpio"
+	"periph.io/x/conn/v3/gpio/gpioreg"
+	"periph.io/x/conn/v3/i2c"
+	"periph.io/x/conn/v3/i2c/i2creg"
+	"periph.io/x/conn/v3/pin"
+	"periph.io/x/conn/v3/pin/pinreg"
+	"periph.io/x/conn/v3/spi/spireg"
 	"periph.io/x/extra/hostextra/d2xx/ftdi"
-	"periph.io/x/periph"
-	"periph.io/x/periph/conn/gpio"
-	"periph.io/x/periph/conn/gpio/gpioreg"
-	"periph.io/x/periph/conn/i2c"
-	"periph.io/x/periph/conn/i2c/i2creg"
-	"periph.io/x/periph/conn/pin"
-	"periph.io/x/periph/conn/pin/pinreg"
-	"periph.io/x/periph/conn/spi/spireg"
 )
 
 // All enumerates all the connected FTDI devices.
@@ -128,7 +128,7 @@ func registerDev(d Dev, multi bool) error {
 	return nil
 }
 
-// driver implements periph.Driver.
+// driver implements driver.Impl.
 type driver struct {
 	mu         sync.Mutex
 	all        []Dev
@@ -199,7 +199,7 @@ func (d *driver) reset() {
 func init() {
 	if !disabled {
 		drv.reset()
-		periph.MustRegister(&drv)
+		driverreg.MustRegister(&drv)
 	}
 }
 

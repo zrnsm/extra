@@ -12,7 +12,7 @@ import (
 	"os"
 
 	"periph.io/x/extra/experimental/hostextra/usbbus"
-	"periph.io/x/periph/host"
+	"periph.io/x/host/v3"
 )
 
 func mainImpl() error {

@@ -5,19 +5,19 @@
 package hostextra
 
 import (
+	"periph.io/x/conn/v3/driver/driverreg"
 	_ "periph.io/x/extra/hostextra/d2xx"
-	"periph.io/x/periph"
-	"periph.io/x/periph/host"
+	"periph.io/x/host/v3"
 )
 
-// Init calls host.Init(), which calls periph.Init() and returns it as-is.
+// Init calls host.Init(), which calls driverreg.Init() and returns it as-is.
 //
-// The difference with host.Init() and periph.Init() is that hostextra.Init()
+// The difference with host.Init() and driverreg.Init() is that hostextra.Init()
 // includes more drivers, the drivers that either depend on third party
 // packages or on cgo.
 //
-// Since host.Init() is used, all drivers in periph.io/x/periph/host are also
+// Since host.Init() is used, all drivers in periph.io/x/host/v3 are also
 // automatically loaded.
-func Init() (*periph.State, error) {
+func Init() (*driverreg.State, error) {
 	return host.Init()
 }

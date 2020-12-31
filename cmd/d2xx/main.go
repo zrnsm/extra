@@ -15,7 +15,7 @@ import (
 
 	"periph.io/x/extra/hostextra/d2xx"
 	"periph.io/x/extra/hostextra/d2xx/ftdi"
-	"periph.io/x/periph/host"
+	"periph.io/x/host/v3"
 )
 
 func process(d d2xx.Dev) {

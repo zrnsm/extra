@@ -12,7 +12,7 @@ import (
 	"testing"
 
 	"periph.io/x/extra/experimental/conn/usb"
-	"periph.io/x/periph/host"
+	"periph.io/x/host/v3"
 )
 
 func Example() {

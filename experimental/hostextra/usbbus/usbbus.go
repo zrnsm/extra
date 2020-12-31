@@ -12,9 +12,9 @@ import (
 	"sync"
 
 	"github.com/google/gousb"
+	"periph.io/x/conn/v3"
+	"periph.io/x/conn/v3/driver/driverreg"
 	"periph.io/x/extra/experimental/conn/usb"
-	"periph.io/x/periph"
-	"periph.io/x/periph/conn"
 )
 
 // Desc represents the description of an USB device on an USB bus.
@@ -121,7 +121,7 @@ func (d *dev) Tx(w, r []byte) error {
 	return err
 }
 
-// driver implements periph.Driver.
+// driver implements driver.Impl.
 type driver struct {
 }
 
@@ -276,8 +276,8 @@ func scanDevices(m map[usb.ID]usb.Opener) error {
 }
 
 func init() {
-	periph.MustRegister(&driver{})
+	driverreg.MustRegister(&driver{})
 }
 
-var _ periph.Driver = &driver{}
+var _ driver.Impl = &driver{}
 var _ usb.ConnCloser = &dev{}

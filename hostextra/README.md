@@ -8,5 +8,5 @@ You are welcome to create pull requests to add drivers here or improve the
 quality of drivers already here. Please make sure to abide to requests in
 [project/contributing/](https://periph.io/project/contributing/).
 
-Unlike code in [periph.io/x/periph/host](https://periph.io/x/periph/host), code
+Unlike code in [periph.io/x/host/v3](https://periph.io/x/host/v3), code
 under `hostextra` is allowed to use `cgo` or depend on third party Go packages.

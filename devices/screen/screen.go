@@ -19,7 +19,7 @@ import (
 
 	"github.com/maruel/ansi256"
 	"github.com/mattn/go-colorable"
-	"periph.io/x/periph/conn/display"
+	"periph.io/x/conn/v3/display"
 )
 
 // Dev is a 1D LED strip emulator that outputs to the console.

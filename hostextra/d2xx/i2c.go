@@ -18,10 +18,10 @@ import (
 	"errors"
 	"fmt"
 
-	"periph.io/x/periph/conn"
-	"periph.io/x/periph/conn/gpio"
-	"periph.io/x/periph/conn/i2c"
-	"periph.io/x/periph/conn/physic"
+	"periph.io/x/conn/v3"
+	"periph.io/x/conn/v3/gpio"
+	"periph.io/x/conn/v3/i2c"
+	"periph.io/x/conn/v3/physic"
 )
 
 const i2cSCL = 1    // D0

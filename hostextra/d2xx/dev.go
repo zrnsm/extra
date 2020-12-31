@@ -9,12 +9,12 @@ import (
 	"strconv"
 	"sync"
 
+	"periph.io/x/conn/v3"
+	"periph.io/x/conn/v3/gpio"
+	"periph.io/x/conn/v3/i2c"
+	"periph.io/x/conn/v3/physic"
+	"periph.io/x/conn/v3/spi"
 	"periph.io/x/extra/hostextra/d2xx/ftdi"
-	"periph.io/x/periph/conn"
-	"periph.io/x/periph/conn/gpio"
-	"periph.io/x/periph/conn/i2c"
-	"periph.io/x/periph/conn/physic"
-	"periph.io/x/periph/conn/spi"
 )
 
 // Info is the information gathered about the connected FTDI device.

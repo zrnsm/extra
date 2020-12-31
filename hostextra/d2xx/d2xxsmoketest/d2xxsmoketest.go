@@ -12,8 +12,8 @@ import (
 	"fmt"
 	"time"
 
+	"periph.io/x/conn/v3/gpio"
 	"periph.io/x/extra/hostextra/d2xx"
-	"periph.io/x/periph/conn/gpio"
 )
 
 // SmokeTest is imported by extra-smoketest.
