@@ -14,7 +14,7 @@ import "C"
 import (
 	"unsafe"
 
-	"periph.io/x/extra/hostextra/d2xx/ftdi"
+	"github.com/zrnsm/extra/hostextra/d2xx/ftdi"
 )
 
 const disabled = false

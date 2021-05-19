@@ -13,8 +13,8 @@ import (
 	"log"
 	"os"
 
-	"periph.io/x/extra/hostextra/d2xx"
-	"periph.io/x/extra/hostextra/d2xx/ftdi"
+	"github.com/zrnsm/extra/hostextra/d2xx"
+	"github.com/zrnsm/extra/hostextra/d2xx/ftdi"
 	"periph.io/x/periph/host"
 )
 

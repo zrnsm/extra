@@ -31,7 +31,7 @@ import (
 	"strconv"
 	"time"
 
-	"periph.io/x/extra/hostextra/d2xx/ftdi"
+	"github.com/zrnsm/extra/hostextra/d2xx/ftdi"
 )
 
 // Version returns the version number of the D2xx driver currently used.

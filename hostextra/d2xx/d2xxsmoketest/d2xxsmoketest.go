@@ -12,7 +12,7 @@ import (
 	"fmt"
 	"time"
 
-	"periph.io/x/extra/hostextra/d2xx"
+	"github.com/zrnsm/extra/hostextra/d2xx"
 	"periph.io/x/periph/conn/gpio"
 )
 

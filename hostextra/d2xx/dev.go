@@ -9,7 +9,7 @@ import (
 	"strconv"
 	"sync"
 
-	"periph.io/x/extra/hostextra/d2xx/ftdi"
+	"github.com/zrnsm/extra/hostextra/d2xx/ftdi"
 	"periph.io/x/periph/conn"
 	"periph.io/x/periph/conn/gpio"
 	"periph.io/x/periph/conn/i2c"

@@ -7,7 +7,7 @@
 
 package d2xx
 
-import "periph.io/x/extra/hostextra/d2xx/ftdi"
+import "github.com/zrnsm/extra/hostextra/d2xx/ftdi"
 
 const disabled = true
 

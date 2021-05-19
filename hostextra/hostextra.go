@@ -5,7 +5,7 @@
 package hostextra
 
 import (
-	_ "periph.io/x/extra/hostextra/d2xx"
+	_ "github.com/zrnsm/extra/hostextra/d2xx"
 	"periph.io/x/periph"
 	"periph.io/x/periph/host"
 )

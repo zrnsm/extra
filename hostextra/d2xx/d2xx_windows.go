@@ -9,7 +9,7 @@ import (
 	"syscall"
 	"unsafe"
 
-	"periph.io/x/extra/hostextra/d2xx/ftdi"
+	"github.com/zrnsm/extra/hostextra/d2xx/ftdi"
 )
 
 var disabled = true

@@ -15,7 +15,7 @@ import (
 	"os"
 	"sort"
 
-	"periph.io/x/extra/hostextra/d2xx/d2xxsmoketest"
+	"github.com/zrnsm/extra/hostextra/d2xx/d2xxsmoketest"
 	"periph.io/x/periph/host"
 )
 

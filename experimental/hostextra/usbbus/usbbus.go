@@ -12,7 +12,7 @@ import (
 	"sync"
 
 	"github.com/google/gousb"
-	"periph.io/x/extra/experimental/conn/usb"
+	"github.com/zrnsm/extra/experimental/conn/usb"
 	"periph.io/x/periph"
 	"periph.io/x/periph/conn"
 )

@@ -7,7 +7,7 @@ package d2xx
 import (
 	"testing"
 
-	"periph.io/x/extra/hostextra/d2xx/ftdi"
+	"github.com/zrnsm/extra/hostextra/d2xx/ftdi"
 )
 
 func TestDriver(t *testing.T) {

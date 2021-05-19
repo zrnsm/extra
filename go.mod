@@ -1,4 +1,4 @@
-module periph.io/x/extra
+module github.com/zrnsm/extra
 
 go 1.11
 
