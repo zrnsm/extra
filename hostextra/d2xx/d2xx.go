@@ -195,15 +195,18 @@ func (d *device) readAll(b []byte) error {
 		}
 		p, err := d.read(b[offset : offset+chunk])
 		if err != nil {
+			fmt.Println("EOF from raw read")
 			return err
 		}
 		if p != 0 {
 			offset += p
 			last = time.Now()
 		} else if time.Since(last) > 200*time.Millisecond {
+			fmt.Println("EOF on timeout error")
 			return io.EOF
 		}
 	}
+	fmt.Println("readAll normal return")
 	return nil
 }
 
