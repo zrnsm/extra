@@ -227,27 +227,29 @@ func (d *device) mpsseVerify() error {
 		// Sometimes, especially right after a reset, the device spews a few bytes.
 		// Discard them. This significantly increases the odds of a successful
 		// initialization.
-		if false {
-			p, e := d.h.d2xxGetQueueStatus()
-			if e != 0 {
-				fmt.Println("exit mpsseVerify error GetQueueStatus");
-				return toErr("Read/GetQueueStatus", e)
+		p, e := d.h.d2xxGetQueueStatus()
+		if e != 0 {
+			fmt.Println("exit mpsseVerify error GetQueueStatus");
+			return toErr("Read/GetQueueStatus", e)
+		}
+		fmt.Println(b)
+		for p > 2 {
+			l := int(p) - 2
+			if l > len(b) {
+				l = len(b)
 			}
-			for p > 2 {
-				l := int(p) - 2
-				if l > len(b) {
-					l = len(b)
-				}
-				// Discard the overflow bytes.
-				if err := d.readAll(b[:l]); err != nil {
-					fmt.Println("exit mpsseVerify first error readAll");
-					return fmt.Errorf("d2xx: mpsseVerify: %v", err)
-				}
-				p -= uint32(l)
+			// Discard the overflow bytes.
+			if err := d.readAll(b[:l]); err != nil {
+				fmt.Println("exit mpsseVerify first error readAll");
+				return fmt.Errorf("d2xx: mpsseVerify: %v", err)
 			}
+			fmt.Println(b)
+			p -= uint32(l)
 		}
 		// Custom implementation, as we want to flush any stray byte.
 		if err := d.readAll(b[:2]); err != nil {
+			fmt.Println(b)
+			fmt.Println("exit mpsseVerify first error second readAll");
 			fmt.Println("exit mpsseVerify first error second readAll");
 			return fmt.Errorf("d2xx: mpsseVerify: %v", err)
 		}
