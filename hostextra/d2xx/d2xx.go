@@ -356,7 +356,7 @@ type bitMode uint8
 
 const (
 	// Resets all Pins to their default value
-	bitModeReset bitMode = 0x00
+	bitModeReset bitMode = 0x02
 	// Sets the DBus to asynchronous bit-bang.
 	bitModeAsyncBitbang bitMode = 0x01
 	// Switch to MPSSE mode (FT2232, FT2232H, FT4232H and FT232H).
