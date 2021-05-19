@@ -201,7 +201,7 @@ func (d *device) readAll(b []byte) error {
 		if p != 0 {
 			offset += p
 			last = time.Now()
-		} else if time.Since(last) > 200*time.Millisecond {
+		} else if time.Since(last) > 2000*time.Millisecond {
 			fmt.Println("EOF on timeout error")
 			return io.EOF
 		}
