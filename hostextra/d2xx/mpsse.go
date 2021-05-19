@@ -164,6 +164,7 @@ func (d *device) setupMPSSE() error {
 	// Try to verify the MPSSE controller without initializing it first. This is
 	// the 'happy path', which enables reusing the device is its current state
 	// without affecting current GPIO state.
+	fmt.Println("initial mpsseVerify");
 	if d.mpsseVerify() != nil {
 		// Do a full reset. Just trying to set the MPSSE controller will
 		// likely not work. That's a layering violation (since the retry with reset
@@ -180,7 +181,10 @@ func (d *device) setupMPSSE() error {
 		if err := d.setBitMode(0, bitModeMpsse); err != nil {
 			return err
 		}
+
+		fmt.Println("second mpsseVerify");
 		if err := d.mpsseVerify(); err != nil {
+			fmt.Println("second mpsseVerify failed");
 			return err
 		}
 	}
