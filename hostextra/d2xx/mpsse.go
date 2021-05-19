@@ -164,7 +164,6 @@ func (d *device) setupMPSSE() error {
 	// Try to verify the MPSSE controller without initializing it first. This is
 	// the 'happy path', which enables reusing the device is its current state
 	// without affecting current GPIO state.
-	fmt.Println("initial mpsseVerify");
 	if d.mpsseVerify() != nil {
 		// Do a full reset. Just trying to set the MPSSE controller will
 		// likely not work. That's a layering violation (since the retry with reset
@@ -182,9 +181,7 @@ func (d *device) setupMPSSE() error {
 			return err
 		}
 
-		fmt.Println("second mpsseVerify");
 		if err := d.mpsseVerify(); err != nil {
-			fmt.Println("second mpsseVerify failed");
 			return err
 		}
 	}
@@ -210,7 +207,6 @@ func (d *device) setupMPSSE() error {
 //
 // In practice this takes around 2ms.
 func (d *device) mpsseVerify() error {
-	fmt.Println("enter mpsseVerify");
 	var b [16]byte
 	for _, v := range []byte{0xAA, 0xAB} {
 		// Write a bad command and ensure it returned correctly.
@@ -221,7 +217,6 @@ func (d *device) mpsseVerify() error {
 		b[0] = v
 		b[1] = flush
 		if err := d.writeAll(b[:2]); err != nil {
-			fmt.Println("exit mpsseVerify first error writeAll");
 			return fmt.Errorf("d2xx: mpsseVerify: %v", err)
 		}
 		// Sometimes, especially right after a reset, the device spews a few bytes.
@@ -229,10 +224,8 @@ func (d *device) mpsseVerify() error {
 		// initialization.
 		p, e := d.h.d2xxGetQueueStatus()
 		if e != 0 {
-			fmt.Println("exit mpsseVerify error GetQueueStatus");
 			return toErr("Read/GetQueueStatus", e)
 		}
-		fmt.Println(b)
 		for p > 2 {
 			l := int(p) - 2
 			if l > len(b) {
@@ -240,31 +233,22 @@ func (d *device) mpsseVerify() error {
 			}
 			// Discard the overflow bytes.
 			if err := d.readAll(b[:l]); err != nil {
-				fmt.Println("exit mpsseVerify first error readAll");
 				return fmt.Errorf("d2xx: mpsseVerify: %v", err)
 			}
-			fmt.Println(b)
 			p -= uint32(l)
 		}
 		// Custom implementation, as we want to flush any stray byte.
 		if err := d.readAll(b[:2]); err != nil {
-			fmt.Println(b)
-			fmt.Println("exit mpsseVerify first error second readAll");
-			fmt.Println("exit mpsseVerify first error second readAll");
 			return fmt.Errorf("d2xx: mpsseVerify: %v", err)
 		}
 		// 0xFA means invalid command, 0xAA is the command echoed back.
 		if b[0] != 0xFA || b[1] != v {
-			fmt.Println("exit mpsseVerify failed test for byte");
 			return fmt.Errorf("d2xx: mpsseVerify: failed test for byte %#x: %#x", v, b)
 		}
 	}
 
-	fmt.Println("exit mpsseVerify normally");
 	return nil
 }
-
-//
 
 // mpsseRegRead reads the memory mapped registers from the device.
 func (d *device) mpsseRegRead(addr uint16) (byte, error) {

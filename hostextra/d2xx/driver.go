@@ -38,19 +38,18 @@ func open(opener func(i int) (d2xxHandle, int), i int) (Dev, error) {
 	if err != nil {
 		return nil, err
 	}
-	//	if err := h.setupCommon(); err != nil {
-		// setupCommon() takes the device in its previous state. It could be in an
-		// unexpected state, so try resetting it first.
-		if err := h.reset(); err != nil {
-			h.closeDev()
-			return nil, err
-		}
-		if err := h.setupCommon(); err != nil {
-			h.closeDev()
-			return nil, err
-		}
-		// The second attempt worked.
-	//	}
+
+	// Force a reset
+	if err := h.reset(); err != nil {
+		h.closeDev()
+		return nil, err
+	}
+
+	if err := h.setupCommon(); err != nil {
+		h.closeDev()
+		return nil, err
+	}
+
 	// Makes a copy of the handle.
 	g := generic{index: i, h: *h, name: h.t.String()}
 	if i > 0 {

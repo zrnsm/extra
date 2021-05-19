@@ -195,18 +195,15 @@ func (d *device) readAll(b []byte) error {
 		}
 		p, err := d.read(b[offset : offset+chunk])
 		if err != nil {
-			fmt.Println("EOF from raw read")
 			return err
 		}
 		if p != 0 {
 			offset += p
 			last = time.Now()
 		} else if time.Since(last) > 2000*time.Millisecond {
-			fmt.Println("EOF on timeout error")
 			return io.EOF
 		}
 	}
-	fmt.Println("readAll normal return")
 	return nil
 }
 
@@ -356,7 +353,7 @@ type bitMode uint8
 
 const (
 	// Resets all Pins to their default value
-	bitModeReset bitMode = 0x02
+	bitModeReset bitMode = 0x02 // Force Mpsse mode on reset
 	// Sets the DBus to asynchronous bit-bang.
 	bitModeAsyncBitbang bitMode = 0x01
 	// Switch to MPSSE mode (FT2232, FT2232H, FT4232H and FT232H).
