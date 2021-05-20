@@ -195,6 +195,18 @@ func (f *generic) Close() error {
 	return f.h.closeDev()
 }
 
+func (f *generic) Reset() error {
+	if e := f.h.h.d2xxResetDevice(); e != 0 {
+		return toErr("Reset", e)
+	}
+	if err := f.h.setBitMode(0, 0x00); err != nil {
+		return err
+	}
+	_ = f.h.flushPending()
+	f.h.closeDev()
+	return nil
+}
+
 func (f *generic) EraseEEPROM() error {
 	return f.h.eraseEEPROM()
 }
