@@ -191,6 +191,10 @@ func (f *generic) WriteEEPROM(ee *ftdi.EEPROM) error {
 	return f.h.programEEPROM(ee)
 }
 
+func (f *generic) Close() error {
+	return f.h.closeDev()
+}
+
 func (f *generic) EraseEEPROM() error {
 	return f.h.eraseEEPROM()
 }
